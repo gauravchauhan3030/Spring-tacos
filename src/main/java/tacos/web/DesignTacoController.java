@@ -23,13 +23,9 @@ import tacos.Taco;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
 
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
 @Controller
 @RequestMapping("/design")
-//end::injectingIngredientRepository[]
 @SessionAttributes("order")
-//tag::injectingIngredientRepository[]
 public class DesignTacoController {
 
   private final IngredientRepository ingredientRepo;
@@ -37,15 +33,6 @@ public class DesignTacoController {
   //end::injectingIngredientRepository[]
   private TacoRepository tacoRepo;
 
-  //end::injectingDesignRepository[]
-  /*
-  //tag::injectingIngredientRepository[]
-  public DesignTacoController(IngredientRepository ingredientRepo) {
-    this.ingredientRepo = ingredientRepo;
-  }
-  //end::injectingIngredientRepository[]
-   */
-  //tag::injectingDesignRepository[]
 
   @Autowired
   public DesignTacoController(
@@ -82,9 +69,7 @@ public class DesignTacoController {
 
     return "design";
   }
-  //end::injectingIngredientRepository[]
 
-//tag::injectingDesignRepository[]
   @PostMapping
   public String processDesign(
       @Valid Taco taco, Errors errors,
@@ -110,18 +95,5 @@ public class DesignTacoController {
               .collect(Collectors.toList());
   }
 
-  /*
-  //tag::injectingDesignRepository[]
-  //tag::injectingIngredientRepository[]
-
-   ...
-  //end::injectingIngredientRepository[]
-  //end::injectingDesignRepository[]
-  */
-
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
 
 }
-//end::injectingIngredientRepository[]
-//end::injectingDesignRepository[]
